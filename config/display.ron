@@ -1,0 +1,5 @@
+(
+	title: "Pong",
+	dimensions: Some((500, 500)),
+)
+
