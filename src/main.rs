@@ -18,6 +18,8 @@ use amethyst::{
 mod pong;
 use crate::pong::Pong;
 
+mod systems;
+
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
 
@@ -39,6 +41,7 @@ fn main() -> amethyst::Result<()> {
             )?
         .with_bundle(TransformBundle::new())?
         .with_bundle(input_bundle)?
+        .with(systems::PaddleSystem, "paddle_system", &["input_system"])
         ;
 
     let assets_dir = app_root.join("assets");
